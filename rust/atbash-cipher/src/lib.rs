@@ -24,7 +24,6 @@ fn atbash<'a>(s: &'a str) -> impl Iterator<Item = char> + 'a {
     s.chars().filter_map(|c| {
         Some(c)
             .filter(|c| c.is_ascii_alphanumeric())
-            .map(|c| c.to_ascii_lowercase())
-            .map(transcode_char)
+            .map(|c| transcode_char(c.to_ascii_lowercase()))
     })
 }
